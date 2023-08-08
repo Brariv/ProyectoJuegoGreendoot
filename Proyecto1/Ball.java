@@ -12,12 +12,13 @@ public class Ball extends Actor
      * Act - do whatever the cBall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    GifImage myGif = new GifImage("aball.gif");
     public static int sScore = 0;
     public static int vScore = 0;
     
     public void act()
     {
+        setImage(myGif.getCurrentImage());
         move(6);
         punto();
         miss();
@@ -26,9 +27,11 @@ public class Ball extends Actor
     {
         if (getX() >= 430 && getX() <= 580 && getY() >= 10 && getY() <= 180)
         {
-            vScore = vScore + 1;
             sScore = sScore + 1000;
-            Greenfoot.stop();
+            vScore = vScore + 1;
+            //Greenfoot.stop();
+            Player.sScore = 0;
+            Greenfoot.setWorld(new ganar());
         }
     }
     public void miss()
@@ -37,7 +40,8 @@ public class Ball extends Actor
         {
             vScore = vScore + 1;
             sScore = sScore + 0;
-            Greenfoot.stop();
+            Player.sScore = 0;
+            Greenfoot.setWorld(new perder());
         }
     }
 }

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Kick extends World
 {
-    Points myPoints = new Points();
+    PointsK myPoints = new PointsK();
 
     /**
      * Constructor for objects of class Kick.
@@ -28,7 +28,7 @@ public class Kick extends World
     public void act()
     {
         myPoints.update(Player.sScore + Ball.sScore);
-
+    
     }
     
     }

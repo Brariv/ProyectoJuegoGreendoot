@@ -10,6 +10,7 @@ public class Player extends Actor
 {
     boolean touchingEnemigo = false;
     
+    GifImage gif = new GifImage("azul.gif");
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -27,13 +28,28 @@ public class Player extends Actor
     public static int Health = 3;
     public Player()
     {
+        setImage("azul.gif");
         GreenfootImage azul = getImage();
-        int myNewHeight = (int)azul.getHeight () /3;
-        int myNewWidth = (int)azul.getWidth () /3;
+        int myNewHeight = (int)azul.getHeight () /2;
+        int myNewWidth = (int)azul.getWidth () /2;
         azul.scale (myNewWidth,myNewHeight);
     }
     public void checkKeyPress()
     {
+        setImage(gif.getCurrentImage());
+        setRotation(0);
+        if (getY() <= 115){  
+            setLocation(getX(), 116);
+        }
+        else if (getY() >= 500){
+            setLocation(getX(), 499);
+        }
+        else if (getX() >= 934){
+            setLocation(933, getY());
+        }
+        else if (getX() <= 21){
+            setLocation(22, getY());
+        }
         if (Greenfoot.isKeyDown("up")){
             setRotation(270);
             move(5);

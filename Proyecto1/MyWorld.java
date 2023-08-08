@@ -22,12 +22,12 @@ public class MyWorld extends World
         addObject(new TwoHeart(), 825, 50);
         addObject(new ThreeHeart(), 873, 50);
         addObject(myPoints, 175, 50);
-       
+        
         for (int i = 0; i < 3; i++){
             addObject(new Star(), getRandomNumber(110,750), getRandomNumber(110,495));
         }
         
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 7; i++){
             addObject(new Enemigo(), getRandomNumber(110,750), getRandomNumber(110,495));
         }
         
@@ -56,13 +56,13 @@ public class MyWorld extends World
     public void act()
     {
         win();
-        myPoints.update(Player.sScore);
+        myPoints.update(Player.sScore + Ball.sScore);
         adjustHearts(Player.Health);
         if(Player.vScore == 1)
         {
             Greenfoot.setWorld(new Kick());
             Player.vScore = 0;
-            Player.sScore = 0;
+            Player.Health = 3;
         }
     }
     public void adjustHearts(int health)
@@ -70,7 +70,11 @@ public class MyWorld extends World
         if (health > 3) health = 3;
         if (health <= 0) {
             removeObjects(getObjects(OneHeart.class));
-            Greenfoot.stop();
+            Player.Health = 3;
+            Player.vScore = 0;
+            Player.sScore = 0;
+            Greenfoot.setWorld(new perder());
+            //Greenfoot.stop();
         }else if(health == 2){
             removeObjects(getObjects(ThreeHeart.class));
         }else if(health == 1){

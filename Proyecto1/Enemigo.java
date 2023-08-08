@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class Enemigo here.
  * 
@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemigo extends Actor
 {
-    
-    
+    GreenfootImage naranja = new GreenfootImage("naranja.gif");
+    GifImage gif = new GifImage("naranja.gif");
+
     
     /**
      * Act - do whatever the Enemigo wants to do. This method is called whenever
@@ -24,7 +25,7 @@ public class Enemigo extends Actor
         // Add your action code here.
         //Player();
         
-        
+        setImage(gif.getCurrentImage());
         if (getY() <= 115){  
             setRotation(90);
         }
@@ -39,11 +40,7 @@ public class Enemigo extends Actor
     }
     public Enemigo()
     {
-        GreenfootImage naranja = getImage();
-        int myNewHeight = (int)naranja.getHeight () /3;
-        int myNewWidth = (int)naranja.getWidth () /3;
-        naranja.scale (myNewWidth,myNewHeight);
+        setImage("naranja.gif");
         rotation();
     }
-    
 }
