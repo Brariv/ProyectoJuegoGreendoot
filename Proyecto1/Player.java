@@ -24,6 +24,7 @@ public class Player extends Actor
     }
     public static int vScore = 0;
     public static int sScore = 0;
+    public static int Health = 3;
     public Player()
     {
         GreenfootImage azul = getImage();
@@ -100,12 +101,12 @@ public class Player extends Actor
         if (enemigo != null)
         {
             if(touchingEnemigo == false){
-                MyWorld worldsubclass = (MyWorld) getWorld();
-                worldsubclass.hearts.adjustHearts(-1);
+                Health = Health - 1;
                 touchingEnemigo = true;
             }
         } else {
             touchingEnemigo = false;
         }
     }
+    
 }

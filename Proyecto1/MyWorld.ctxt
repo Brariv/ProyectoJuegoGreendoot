@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=void\ loose()
 comment5.params=
 comment5.target=void\ act()
-numComments=6
+comment6.params=health
+comment6.target=void\ adjustHearts(int)
+numComments=7

@@ -13,13 +13,14 @@ public class MyWorld extends World
      * 
      */
     Points myPoints = new Points();
-    public Hearts hearts = new Hearts();
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(992, 621, 1); 
         addObject(new Player(),825,325);
-        addObject(new Hearts(), 825, 50);
+        addObject(new OneHeart(), 777, 50);
+        addObject(new TwoHeart(), 825, 50);
+        addObject(new ThreeHeart(), 873, 50);
         addObject(myPoints, 175, 50);
        
         for (int i = 0; i < 3; i++){
@@ -56,8 +57,20 @@ public class MyWorld extends World
     {
         win();
         myPoints.update(Player.sScore);
-
+        adjustHearts(Player.Health);
     }
-    
+    public void adjustHearts(int health)
+    {
+        if (health > 3) health = 3;
+        if (health <= 0) {
+            removeObjects(getObjects(OneHeart.class));
+            Greenfoot.stop();
+        }else if(health == 2){
+            removeObjects(getObjects(ThreeHeart.class));
+        }else if(health == 1){
+            removeObjects(getObjects(TwoHeart.class));
+        }
+        
     }
+}
 

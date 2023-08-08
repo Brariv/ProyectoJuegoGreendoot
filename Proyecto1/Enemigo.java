@@ -46,14 +46,4 @@ public class Enemigo extends Actor
         rotation();
     }
     
-    public void Player()
-    {
-        Actor player;
-        player = getOneObjectAtOffset(0, 0, Player.class);
-        if (player != null)
-        {
-           MyWorld worldsubclass = (MyWorld) getWorld();
-           worldsubclass.hearts.adjustHearts(-1);
-        }
-    }
 }
