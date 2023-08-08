@@ -29,4 +29,10 @@ public class ganar extends World
         addObject(ganador,296,196);
         ganador.setLocation(326,196);
     }
+    public void act()
+    {
+        Player.vScore = 0;
+        Player.sScore = 0;
+        Player.Health = 3;
+    }
 }

@@ -29,4 +29,10 @@ public class perder extends World
         addObject(loose,277,196);
         loose.setLocation(327,193);
     }
+    public void act()
+    {
+        Player.vScore = 0;
+        Player.sScore = 0;
+        Player.Health = 3;
+    }
 }
