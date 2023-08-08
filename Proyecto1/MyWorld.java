@@ -12,6 +12,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    Points myPoints = new Points();
     public Hearts hearts = new Hearts();
     public MyWorld()
     {    
@@ -19,6 +20,7 @@ public class MyWorld extends World
         super(992, 621, 1); 
         addObject(new Player(),825,325);
         addObject(new Hearts(), 825, 50);
+        addObject(myPoints, 175, 50);
        
         for (int i = 0; i < 3; i++){
             addObject(new Star(), getRandomNumber(110,750), getRandomNumber(110,495));
@@ -53,6 +55,9 @@ public class MyWorld extends World
     public void act()
     {
         win();
+        myPoints.update(Player.sScore);
+
     }
+    
     }
 

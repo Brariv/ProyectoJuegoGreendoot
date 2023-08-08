@@ -60,7 +60,7 @@ public class Player extends Actor
         
            World world;
            world = getWorld();
-           sScore = sScore + 1;
+           sScore = sScore + 250;
         }
     }
     public void punto()
@@ -68,6 +68,7 @@ public class Player extends Actor
         if (getX() >= 35 && getX() <= 85 && getY() >= 100 && getY() <= 510)
         {
             vScore = vScore + 1;
+            sScore = sScore + 1000;
         }
     }
     public void move()

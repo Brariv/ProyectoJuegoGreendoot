@@ -35,7 +35,7 @@ public class Hearts extends Actor
     {
         health += adjustmentValue;
         if (health > 3) health = 3;
-        if (health >= 0) Greenfoot.stop();
+        if (health <= 0) Greenfoot.stop();
         else updateImage();
     }
 }
