@@ -12,13 +12,15 @@ public class Star extends Actor
      * Act - do whatever the Star wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GifImage myGif = new GifImage("aball.gif");
     public void act()
     {
-        setImage(myGif.getCurrentImage());
+        // Add your action code here.
     }
     public Star()
     {
-        
+        GreenfootImage Estrella = getImage();
+        int myNewHeight = (int)Estrella.getHeight () /6;
+        int myNewWidth = (int)Estrella.getWidth () /6;
+        Estrella.scale (myNewWidth,myNewHeight);
     }
 }

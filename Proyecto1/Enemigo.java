@@ -9,8 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Enemigo extends Actor
 {
     
-    GifImage gif = new GifImage("naranja.gif");
-
+    
     
     /**
      * Act - do whatever the Enemigo wants to do. This method is called whenever
@@ -19,14 +18,13 @@ public class Enemigo extends Actor
     public void rotation()
     {
         setRotation(90);
-        
     }
     public void act()
     {
         // Add your action code here.
         //Player();
         
-        setImage(gif.getCurrentImage());
+        
         if (getY() <= 115){  
             setRotation(90);
         }
@@ -41,17 +39,11 @@ public class Enemigo extends Actor
     }
     public Enemigo()
     {
+        GreenfootImage naranja = getImage();
+        int myNewHeight = (int)naranja.getHeight () /3;
+        int myNewWidth = (int)naranja.getWidth () /3;
+        naranja.scale (myNewWidth,myNewHeight);
         rotation();
     }
     
-    public void Player()
-    {
-        Actor player;
-        player = getOneObjectAtOffset(0, 0, Player.class);
-        if (player != null)
-        {
-           MyWorld worldsubclass = (MyWorld) getWorld();
-           worldsubclass.hearts.adjustHearts(-1);
-        }
-    }
 }

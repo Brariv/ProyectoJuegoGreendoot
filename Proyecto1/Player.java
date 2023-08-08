@@ -6,31 +6,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-
 public class Player extends Actor
 {
     boolean touchingEnemigo = false;
-    GifImage gif = new GifImage("azul.gif");
-    int gg = 0;
+    
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        setImage(gif.getCurrentImage());
-        if (getY() <= 115){  
-            setLocation(getX(), 116);
-        }
-        else if (getY() >= 500){
-            setLocation(getX(), 499);
-        }
-        else if (getX() >= 934){
-            setLocation(933, getY());
-        }
-        else if (getX() <= 21){
-            setLocation(22, getY());
-        }
         checkKeyPress();
         Star();
         punto();
@@ -39,12 +24,16 @@ public class Player extends Actor
     }
     public static int vScore = 0;
     public static int sScore = 0;
+    public static int Health = 3;
     public Player()
     {
+        GreenfootImage azul = getImage();
+        int myNewHeight = (int)azul.getHeight () /3;
+        int myNewWidth = (int)azul.getWidth () /3;
+        azul.scale (myNewWidth,myNewHeight);
     }
     public void checkKeyPress()
     {
-        setRotation(0);
         if (Greenfoot.isKeyDown("up")){
             setRotation(270);
             move(5);
@@ -102,7 +91,6 @@ public class Player extends Actor
         }
         if (newX > 825 && newX < 950 && newY > 510 && newY < 105){
             this.setLocation(newX, newY);
-        
         }
         
     }
@@ -113,12 +101,12 @@ public class Player extends Actor
         if (enemigo != null)
         {
             if(touchingEnemigo == false){
-                MyWorld worldsubclass = (MyWorld) getWorld();
-                worldsubclass.hearts.adjustHearts(-1);
+                Health = Health - 1;
                 touchingEnemigo = true;
             }
         } else {
             touchingEnemigo = false;
         }
     }
+    
 }
