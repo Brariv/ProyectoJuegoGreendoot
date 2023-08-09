@@ -27,7 +27,7 @@ public class MyWorld extends World
             addObject(new Star(), getRandomNumber(110,750), getRandomNumber(110,495));
         }
         
-        for (int i = 0; i < 7; i++){
+        for (int i = 0; i < 8; i++){
             addObject(new Enemigo(), getRandomNumber(110,750), getRandomNumber(110,495));
         }
         
@@ -43,6 +43,8 @@ public class MyWorld extends World
             addObject(new Win(Player.sScore), 450, 450);
             Player.vScore = 0;
             Player.sScore = 0;
+            Ball.sScore = 0;
+            Ball.vScore = 0;
             Greenfoot.stop();
         }
     }
@@ -51,6 +53,8 @@ public class MyWorld extends World
         addObject(new Loose(), 450, 675);
         Player.vScore = 0;
         Player.sScore = 0;
+        Ball.sScore = 0;
+        Ball.vScore = 0;
         Greenfoot.stop();
     }
     public void act()
@@ -73,6 +77,8 @@ public class MyWorld extends World
             Player.Health = 3;
             Player.vScore = 0;
             Player.sScore = 0;
+            Ball.sScore = 0;
+            Ball.vScore = 0;
             Greenfoot.setWorld(new perder());
             //Greenfoot.stop();
         }else if(health == 2){

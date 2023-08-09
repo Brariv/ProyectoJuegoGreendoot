@@ -28,7 +28,6 @@ public class Kick extends World
     public void act()
     {
         myPoints.update(Player.sScore + Ball.sScore);
-    
     }
     
     }

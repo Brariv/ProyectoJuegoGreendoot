@@ -34,5 +34,7 @@ public class ganar extends World
         Player.vScore = 0;
         Player.sScore = 0;
         Player.Health = 3;
+        Ball.sScore = 0;
+        Ball.vScore = 0;
     }
 }
